@@ -1,0 +1,23 @@
+{
+  "name": "graduationProject",
+  "description": "a Sails application",
+  "main": "app.js",
+  "authors": [
+    "logging"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "smaless": "^0.5.4",
+    "jquery": "^2.2.3",
+    "angular": "^1.5.4"
+  }
+}
