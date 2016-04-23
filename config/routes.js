@@ -32,22 +32,8 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'get /': {
-    view: 'index'
-  },
-  
-  'get /analyse':{
-    view:'analyse'
-  }
+  'get /': {view: 'index'},
+  'get /analyse':{view:'analyse'},
 
-  /***************************************************************************
-  *                                                                          *
-  * Custom routes here...                                                    *
-  *                                                                          *
-  * If a request to a URL doesn't match any of the custom routes above, it   *
-  * is matched against Sails route blueprints. See `config/blueprints.js`    *
-  * for configuration options and examples.                                  *
-  *                                                                          *
-  ***************************************************************************/
-
+  'get /files.json':'Md5Ctrl.hi'
 };

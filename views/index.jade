@@ -1,10 +1,10 @@
-html
+html(ng-app="md5")
   head
     title md5
     link(href="/styles/main.css", rel="stylesheet")    
     link(href="/styles/importer.css", rel="stylesheet")
     
-  body
+  body(ng-controller="mainCtl")
     div#header
       | header
     div.sidebar
@@ -14,7 +14,8 @@ html
         li
           a(href="#", title="2") 2
     div.content
-      div index
+      div index{{aaa}}
+      button.btn.btn-default(ng-click="postFile()") 123
     script(src="/js/angular.js")
     script(src="/js/jquery.js")
     script(src="/js/md5.js")
