@@ -15,16 +15,9 @@ module.exports = {
     return res.send(json);
   },
   get: function(req, res) {
-    getMd5.findOne({id:"1"})
-      .exec(function(err, md5) {
-        if (err) {
-          console.log('err',err)
-          return res.json(err)
-        }
-        console.log("md5",md5)
-        return res.send(md5);
-      })
-    // console.log(data)
-    // return res.send(data.data)
+    getMd5.query('select * from md5values',function(err,md5) {
+      console.log(md5)
+      return res.send(md5)
+    })
   }
 };
