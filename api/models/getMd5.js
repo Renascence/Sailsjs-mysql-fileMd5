@@ -5,7 +5,7 @@ module.exports = {
   autoUpdatedAt: false,
   attributes: {
     id: {
-      type: 'string',
+      type: 'int',
       unique: true,
       primaryKey: true,
     },
@@ -13,7 +13,7 @@ module.exports = {
       type: 'string'
     },
     hot: {
-      type: 'string'
+      type: 'int'
     },
     name: {
       type: 'string'
