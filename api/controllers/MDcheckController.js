@@ -14,6 +14,9 @@ module.exports = {
     }
     return res.send(json);
   },
+  get: function (req,res) {
+    return res.getMd5.findOne({id:'1'})
+  },
   bye: function (req, res) {
     return res.redirect("http://www.sayonara.com");
   }
