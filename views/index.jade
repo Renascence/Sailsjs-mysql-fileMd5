@@ -14,13 +14,22 @@ html(ng-app="md5")
         li
           a(href="#", title="2") 2
     div.content
-      div index{{aaa}}
-      button.btn.btn-default(ng-click="postFile()") 123
       form
-        input.btn.btn-default(type="file")
-        button.btn.btn-default(type="submit")计算
+        input#uploadfile(type="file" name="file")
+        input.form-control.manual(ng-file-select="uploadFile($files)")
+        button.btn.btn-default.btn-upload-conf(ng-file-select="uploadFile($files)", onclick="this.value = null")
+          span 上传
+          
+        div#log
+    script(src="/js/spark-md5.js")
     script(src="/js/angular.js")
+    script(src="/js/angular-file-upload.js")
+    // script(src="/js/angular-md5.js")
+    // script(src="/js/angular-file-md5.js")
     script(src="/js/jquery.js")
     script(src="/js/md5.js")
+    script(src="/js/uploadFile.js")
+    
+    
     
   
