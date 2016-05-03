@@ -3,30 +3,54 @@ html(ng-app="md5")
     title md5
     link(href="/styles/main.css", rel="stylesheet")    
     link(href="/styles/importer.css", rel="stylesheet")
+    // link(href="/styles/bootstrap.css", rel="stylesheet")
+    link(href="/styles/ng-table.css", rel="stylesheet")
+    
     
   body(ng-controller="mainCtl")
     div#header
-      | header
-    div.sidebar
-      ul
-        li
-          a(href="analyse", title="1") 1
-        li
-          a(href="#", title="2") 2
     div.content
-      form
-        input#uploadfile(type="file" name="file")
-        input.form-control.manual(ng-file-select="uploadFile($files)")
-        button.btn.btn-default.btn-upload-conf(ng-file-select="uploadFile($files)", onclick="this.value = null")
-          span 上传
-          
-        div#log
+      div.calculate
+        div.stringMd5
+          label 请输入要计算md5的字符串：
+          input(type="text" ng-model="inputString")
+          p 
+            |你输入的字符串md5值是：{{message}}
+        div.filesMd5
+          .fileInputContainer
+            div.btn.btn-default 上传文件
+            input#uploadfile(type="file" name="file")
+          div.progress
+            div.progress-bar.progress-bar-success.progress-bar-striped.active#processBar(role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100")
+          p(ng-click="createMd5()") 文件名:
+            span#fileName
+          p 文件大小:
+            span#fileSize
+          p(ng-click="getFileInfo()") 文件MD5：
+            span#fileMD5
+          div#log    
+      div.showMd5
+        table.table(ng-table="filesInfoTable" show-filter="true")
+          col(width="30%")
+          col(width="70%")
+          tr(ng-repeat="d in $data" )
+            td(title="'名称'"  filter="{ name: 'text'}")
+              span {{d.name}}
+            td(title="'MD5'"  filter="{ md5: 'text'}")  
+              span {{d.md5}}
+      div
+        input(ng-model="createName" type="text")
+        input(ng-model="createMd5Value" type="text")
+        input(ng-model="createType" type="text")
+        button.btn.btn-default(ng-click="createMd5()")
+          span 新建记录
+    script(src="/js/jquery.js")
+    script(src="/js/bootstrap.js")
     script(src="/js/spark-md5.js")
     script(src="/js/angular.js")
-    script(src="/js/angular-file-upload.js")
-    // script(src="/js/angular-md5.js")
-    // script(src="/js/angular-file-md5.js")
-    script(src="/js/jquery.js")
+    script(src="/js/angular-md5.js")
+    
+    script(src="/js/ng-table.js")
     script(src="/js/md5.js")
     script(src="/js/uploadFile.js")
     

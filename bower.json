@@ -19,9 +19,6 @@
     "smaless": "^0.5.4",
     "jquery": "^2.2.3",
     "angular": "^1.5.4",
-    "angular-md5": "^0.1.10",
-    "angular-file-md5": "^0.0.1",
-    "ng-file-upload": "^12.0.4",
-    "angular-file-upload": "^2.2.0"
+    "bootstrap": "^3.3.6"
   }
 }

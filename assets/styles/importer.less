@@ -1,21 +1,62 @@
-body{
-    margin: 0;
+body {
+  margin: 0;
+  background-color: #F3F7F9;
 }
-.sidebar{
-   width: 100px;
-   height: 100%;
-   position: absolute;
-   left: -80px;
-   background-color: #ccc;
-   transition: left 1s ease-in-out;
-   ul li {
+
+.sidebar {
+  width: 100px;
+  height: 100%;
+  position: absolute;
+  left: -80px;
+  background-color: #ccc;
+  transition: left 1s ease-in-out;
+  ul li {
     list-style: none;
     text-align: center;
-  }   
+  }
 }
-.sidebar:hover{
-    left: 0;
-}
-.content{
-  margin-left: 20px;
+
+.content {
+  margin: 0 auto;
+  .calculate {
+    display: inline-block;
+    width: 45%;
+    .stringMd5 {
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ABCDEF;
+      border-radius: 5px;
+      input{
+        padding: 3px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        margin-bottom: 10px;
+      }
+      input:focus{
+        border: 1px solid #000;
+      }
+    }
+    .filesMd5 {
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ABCDEF;
+      border-radius: 5px;
+      .fileInputContainer {
+        display: inline-block;
+        #uploadfile {
+          width: 200px;
+          height: 33px;
+          opacity: 0;
+          margin: -33px 0 10px 0 ;
+        }
+      }
+    }
+  }
+  .showMd5{
+    width: 45%;
+    display: inline-block;
+    border: 1px solid #ABCDEF;
+    border-radius: 5px;
+    padding: 10px;
+  }
 }

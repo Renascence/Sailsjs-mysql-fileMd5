@@ -1,22 +1,32 @@
 module.exports = {
-  tableName: 'md5values',
+  tableName: 'md5Info',
   adapter: 'mysql',
   autoCreatedAt: false,
   autoUpdatedAt: false,
   attributes: {
-    id: {
-      type: 'int',
+    'id': {
+      type: 'integer',
+      size: 10,
       unique: true,
-      primaryKey: true,
+      primaryKey: true
     },
-    md5: {
-      type: 'string'
+    'name': {
+      type: 'string',
+      size: 50
     },
-    hot: {
-      type: 'int'
+    'md5': {
+      type: 'string',
+      size: 50
+      
     },
-    name: {
-      type: 'string'
+    'type': {
+      type: 'string',
+      size: 50
+      
+    },
+    'hot': {
+      size: 10,      
+      type: 'integer'
     }
   }
 };

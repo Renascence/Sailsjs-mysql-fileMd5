@@ -34,6 +34,7 @@ module.exports.routes = {
 
   'get /': {view: 'index'},
   'get /analyse':{view:'analyse'},
-  "get /files1.json": "MDcheckController.get"
+  "get /filesInfo.json": "MDcheckController.get",
+  "post /createMd5.json": "MDcheckController.create"
 };
   
