@@ -199,7 +199,7 @@ a {
   vertical-align: middle;
   cursor: pointer;
   white-space: nowrap;
-  padding: 6px 12px;
+  padding: 5px 10px;
   font-size: 14px;
   line-height: 1.42857;
   border-radius: 4px; }
@@ -1493,6 +1493,7 @@ a {
   position: relative; }
 
 .table {
+  font-size: 14px;
   width: 100%;
   max-width: 100%;
   table-layout: fixed; }

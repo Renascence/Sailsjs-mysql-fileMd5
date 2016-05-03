@@ -19,20 +19,18 @@ body {
 .content {
   margin: 0 auto;
   .calculate {
-    display: inline-block;
-    width: 45%;
     .stringMd5 {
       margin: 10px;
       padding: 10px;
       border: 1px solid #ABCDEF;
       border-radius: 5px;
-      input{
+      input {
         padding: 3px;
         border: 1px solid #ccc;
         border-radius: 3px;
         margin-bottom: 10px;
       }
-      input:focus{
+      input:focus {
         border: 1px solid #000;
       }
     }
@@ -47,16 +45,31 @@ body {
           width: 200px;
           height: 33px;
           opacity: 0;
-          margin: -33px 0 10px 0 ;
+          margin: -33px 0 10px 0;
         }
       }
     }
   }
-  .showMd5{
-    width: 45%;
-    display: inline-block;
-    border: 1px solid #ABCDEF;
-    border-radius: 5px;
-    padding: 10px;
+  .showMd5 {
+    .md5table {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ABCDEF;
+      margin: 10px 0;
+    }
+    label{
+      text-align: right;
+      margin: 5px 0;
+    }
+    input{
+      line-height: 18px;
+      padding: 3px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    input:focus{
+      border: 1px solid #000;
+    }
+    
   }
 }

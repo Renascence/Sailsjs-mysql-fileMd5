@@ -19,6 +19,7 @@
     "smaless": "^0.5.4",
     "jquery": "^2.2.3",
     "angular": "^1.5.4",
-    "bootstrap": "^3.3.6"
+    "bootstrap": "^3.3.6",
+    "angular-cookie": "^4.1.0"
   }
 }

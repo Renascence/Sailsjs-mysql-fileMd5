@@ -9,8 +9,13 @@ html(ng-app="md5")
     
   body(ng-controller="mainCtl")
     div#header
+    div.col-xs-12
+      input(type="text" ng-model="username")
+      input(type="text" ng-model="password")
+      button(ng-click="login()") 登陆
+      button(ng-click="logout()") 注销
     div.content
-      div.calculate
+      div.calculate.col-xs-6
         div.stringMd5
           label 请输入要计算md5的字符串：
           input(type="text" ng-model="inputString")
@@ -29,27 +34,38 @@ html(ng-app="md5")
           p(ng-click="getFileInfo()") 文件MD5：
             span#fileMD5
           div#log    
-      div.showMd5
-        table.table(ng-table="filesInfoTable" show-filter="true")
-          col(width="30%")
-          col(width="70%")
-          tr(ng-repeat="d in $data" )
-            td(title="'名称'"  filter="{ name: 'text'}")
-              span {{d.name}}
-            td(title="'MD5'"  filter="{ md5: 'text'}")  
-              span {{d.md5}}
-      div
-        input(ng-model="createName" type="text")
-        input(ng-model="createMd5Value" type="text")
-        input(ng-model="createType" type="text")
-        button.btn.btn-default(ng-click="createMd5()")
-          span 新建记录
+      div.showMd5.col-xs-6
+        div.md5table
+          table.table(ng-table="filesInfoTable" show-filter="true")
+            col(width="30%")
+            col(width="60%")
+            col
+            tr(ng-repeat="d in $data" )
+              td(title="'名称'"  filter="{ name: 'text'}")
+                span {{d.name}}
+              td(title="'MD5'"  filter="{ md5: 'text'}")  
+                span {{d.md5}}
+              td
+                button.btn.btn-default(ng-click="deleteMd5(d.id)") 删除
+        div(ng-show="cookieUsername")
+          .col-xs-10
+            label.col-md-3 文件名：
+            input(ng-model="createName" type="text")
+          .col-xs-10
+            label.col-md-3 文件MD5：
+            input(ng-model="createMd5Value" type="text")
+          .col-xs-10
+            label.col-md-3 文件种类：
+            input(ng-model="createType" type="text")
+          .col-xs-5
+            button.btn.btn-default(ng-click="createMd5Info()")
+              span 新建记录1
     script(src="/js/jquery.js")
     script(src="/js/bootstrap.js")
     script(src="/js/spark-md5.js")
     script(src="/js/angular.js")
+    script(src="/js/angular-cookies.js")
     script(src="/js/angular-md5.js")
-    
     script(src="/js/ng-table.js")
     script(src="/js/md5.js")
     script(src="/js/uploadFile.js")
