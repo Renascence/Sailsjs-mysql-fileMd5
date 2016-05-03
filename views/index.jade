@@ -9,11 +9,20 @@ html(ng-app="md5")
     
   body(ng-controller="mainCtl")
     div#header
-    div.col-xs-12
-      input(type="text" ng-model="username")
-      input(type="text" ng-model="password")
-      button(ng-click="login()") 登陆
-      button(ng-click="logout()") 注销
+      .navbar-right          
+        li.is-align-right
+          a(href="/" ng-click="logout()") 注销
+        li.is-align-right
+          a(href="/") 
+            span#dropdownCtl 登陆
+            div#dropdownTarget.login-dropdown
+              p
+                label 用户名：  
+                input(type="text" ng-model="username")
+              p
+                label 密  码：
+                input(type="password" ng-model="password")
+              button.btn.btn-default(ng-click="login()") 登陆
     div.content
       div.calculate.col-xs-6
         div.stringMd5

@@ -1,5 +1,7 @@
 $(document).ready ()->
-  log = document.getElementById('log')
+  $('#dropdownCtl').click () -> 
+    $('#dropdownTarget').slideToggle(300)
+  
   $('#uploadfile').click ->
     document.getElementById('fileName').innerHTML = ""
     document.getElementById('fileSize').innerHTML = ""
@@ -22,17 +24,11 @@ $(document).ready ()->
       if currentChunk < chunks
         loadNext()
       else
-        # console.log '1',spark.end()
         document.getElementById('fileMD5').innerHTML = spark.end()
-        # document.getElementById('fileMD5').innerHTML = spark.end()
-        
-        # console.log '2',spark.end()
-        # log.innerHTML += '</p>\nfinished loading :)\n\ncomputed hash:\n' + spark.end() + '\n\nyou can select another file now!\n</p>'
-        # console.log '3',spark.end()
       return
 
     frOnerror = ->
-      log.innerHTML += '\noops, something went wrong.'
+      alert("选择的文件无法上传，请重新选择")
       return
 
     loadNext = ->
@@ -44,9 +40,7 @@ $(document).ready ()->
       fileReader.readAsArrayBuffer blobSlice.call(file, start, end)
       return
       
-    # log.style.display = 'inline-block'
     document.getElementById('fileName').innerHTML = file.name
     document.getElementById('fileSize').innerHTML = file.size.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ',') + ' bytes'
-    # log.innerHTML = 'file name: ' + file.name + ' (' + file.size.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ',') + ' bytes)\n'
     loadNext()
     return

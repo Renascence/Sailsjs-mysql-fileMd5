@@ -3,16 +3,47 @@ body {
   background-color: #F3F7F9;
 }
 
-.sidebar {
-  width: 100px;
-  height: 100%;
-  position: absolute;
-  left: -80px;
-  background-color: #ccc;
-  transition: left 1s ease-in-out;
-  ul li {
-    list-style: none;
-    text-align: center;
+#header {
+  li {
+    line-height: 20px;
+    padding: 15px 20px;
+    font-size: 16px;
+    position: relative;
+    .login-dropdown {
+      font-size: 14px;
+      display: none;
+      position: absolute;
+      top: 49px;
+      left: -50px;
+      background-color: #CCFFFF;
+      border: 1px solid #ccc;
+      z-index: 2;
+      border-radius: 5px;
+      padding: 8px;
+      input {
+        line-height: 18px;
+        padding: 3px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      input:focus {
+        border: 1px solid #000;
+      }
+    }
+    .login-dropdown:after {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 79px;
+      width: 0px;
+      height: 0px;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 10px solid #CCFFFF;
+    }
+  }
+  a:visited, a:hover, a:active {
+    color: #000
   }
 }
 
@@ -57,19 +88,18 @@ body {
       border: 1px solid #ABCDEF;
       margin: 10px 0;
     }
-    label{
+    label {
       text-align: right;
       margin: 5px 0;
     }
-    input{
+    input {
       line-height: 18px;
       padding: 3px;
       border-radius: 5px;
       border: 1px solid #ccc;
     }
-    input:focus{
+    input:focus {
       border: 1px solid #000;
     }
-    
   }
 }
