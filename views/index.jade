@@ -5,6 +5,7 @@ html(ng-app="md5")
     link(href="/styles/importer.css", rel="stylesheet")
     // link(href="/styles/bootstrap.css", rel="stylesheet")
     link(href="/styles/ng-table.css", rel="stylesheet")
+    link(href="/styles/unslider.css", rel="stylesheet")
     
     
   body(ng-controller="mainCtl")
@@ -23,6 +24,18 @@ html(ng-app="md5")
                 label 密  码：
                 input(type="password" ng-model="password")
               button.btn.btn-default(ng-click="login()") 登陆
+    div.banner
+      ul
+        li 
+          a(href="http://im.qq.com/")
+            img(src="/images/qq.png")
+            
+        li
+          a(href="http://weixin.qq.com/")
+            img(src="/images/wechat.png")
+        li 
+          a(href="https://www.mozilla.org/en-US/firefox/new/")
+            img(src="/images/firefox.png")
     div.content
       div.calculate.col-xs-6
         div.stringMd5
@@ -36,7 +49,7 @@ html(ng-app="md5")
             input#uploadfile(type="file" name="file")
           div.progress
             div.progress-bar.progress-bar-success.progress-bar-striped.active#processBar(role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100")
-          p(ng-click="createMd5()") 文件名:
+          p 文件名:
             span#fileName
           p 文件大小:
             span#fileSize
@@ -55,8 +68,8 @@ html(ng-app="md5")
               td(title="'MD5'"  filter="{ md5: 'text'}")  
                 span {{d.md5}}
               td
-                button.btn.btn-default(ng-click="deleteMd5(d.id)") 删除
-        div(ng-show="cookieUsername")
+                button.btn.btn-default.btn-sm(ng-click="deleteMd5(d.id)") 删除
+        div.createMd5Info(ng-show="cookieUsername")
           .col-xs-10
             label.col-md-3 文件名：
             input(ng-model="createName" type="text")
@@ -66,10 +79,12 @@ html(ng-app="md5")
           .col-xs-10
             label.col-md-3 文件种类：
             input(ng-model="createType" type="text")
-          .col-xs-5
+          .col-xs-10
+            label.col-md-3
             button.btn.btn-default(ng-click="createMd5Info()")
-              span 新建记录1
+              span 新建记录
     script(src="/js/jquery.js")
+    script(src="/js/unslider-min.js")
     script(src="/js/bootstrap.js")
     script(src="/js/spark-md5.js")
     script(src="/js/angular.js")
@@ -78,7 +93,3 @@ html(ng-app="md5")
     script(src="/js/ng-table.js")
     script(src="/js/md5.js")
     script(src="/js/uploadFile.js")
-    
-    
-    
-  
