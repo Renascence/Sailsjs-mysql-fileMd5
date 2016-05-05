@@ -14,11 +14,15 @@ module.exports = {
       name : req.body.name,
       md5 : req.body.md5,
       type : req.body.type,
-      hot: '0'
+      hot: 0
     })
     .then (data) ->
       res.send 200,"create success"
     .catch (err) ->
       res.send 500,err
-
+      
+  update: (req,res) ->
+    getMd5.update({id:req.body.id},{hot:req.body.hot})
+    .then (data) ->
+      res.send "update success"
 };

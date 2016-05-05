@@ -37,6 +37,7 @@ module.exports.routes = {
   "get /filesInfo.json": "MDcheckController.get",
   "post /createMd5.json": "MDcheckController.create",
   "post /deleteInfo.json":"MDcheckController.delete",
+  "post /updateHot.json":"MDcheckController.update",
   
   "post /login.json": "LoginController.login"
 };

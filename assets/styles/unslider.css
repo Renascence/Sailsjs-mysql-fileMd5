@@ -53,8 +53,8 @@
 }
 .unslider-nav ol li {
   display: inline-block;
-  width: 12px;
-  height: 12px;
+  width: 13px;
+  height: 13px;
   cursor: pointer;
   border-radius: 50%;
   color: transparent;
@@ -62,7 +62,10 @@
   border: 1px solid #aaa;
   margin:0 10px;
 }
-
+.unslider-nav ol li:hover {
+  background-color: #aaa;
+  border: 1px solid #aaa;
+}
 .unslider-arrow {
   display: none;
   position: absolute;

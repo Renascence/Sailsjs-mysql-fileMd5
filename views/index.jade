@@ -23,13 +23,13 @@ html(ng-app="md5")
               p
                 label 密  码：
                 input(type="password" ng-model="password")
+              p(ng-show="loginErr" style="color:red;") 账号或者密码错误
               button.btn.btn-default(ng-click="login()") 登陆
     div.banner
       ul
         li 
           a(href="http://im.qq.com/")
             img(src="/images/qq.png")
-            
         li
           a(href="http://weixin.qq.com/")
             img(src="/images/wechat.png")
@@ -42,26 +42,29 @@ html(ng-app="md5")
           label 请输入要计算md5的字符串：
           input(type="text" ng-model="inputString")
           p 
-            |你输入的字符串md5值是：{{message}}
+            |你输入的字符串的md5值是：{{message}}
         div.filesMd5
           .fileInputContainer
             div.btn.btn-default 上传文件
-            input#uploadfile(type="file" name="file")
+            input#uploadfile(type="file" name="file" ng-click="uploadClick()")
           div.progress
             div.progress-bar.progress-bar-success.progress-bar-striped.active#processBar(role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100")
           p 文件名:
             span#fileName
           p 文件大小:
             span#fileSize
-          p(ng-click="getFileInfo()") 文件MD5：
-            span#fileMD5
-          div#log    
+          p 文件MD5：
+            span#fileMD5 
+          p#recommand 您可能感兴趣：
+            a#recommand1(target="_blank" ng-click="updateHot(0)")
+            a#recommand2(target="_blank" ng-click="updateHot(1)")
+            a#recommand3(target="_blank" ng-click="updateHot(2)")
       div.showMd5.col-xs-6
         div.md5table
           table.table(ng-table="filesInfoTable" show-filter="true")
-            col(width="30%")
-            col(width="60%")
-            col
+            col(width="35%")
+            col(width="65%")
+            col(width="10%" ng-show="cookieUsername")
             tr(ng-repeat="d in $data" )
               td(title="'名称'"  filter="{ name: 'text'}")
                 span {{d.name}}
