@@ -1,6 +1,6 @@
 html(ng-app="md5")
   head
-    title md5
+    title MD5 Check
     link(href="/styles/main.css", rel="stylesheet")    
     link(href="/styles/importer.css", rel="stylesheet")
     // link(href="/styles/bootstrap.css", rel="stylesheet")
@@ -82,6 +82,9 @@ html(ng-app="md5")
           .col-xs-10
             label.col-md-3 文件种类：
             input(ng-model="createType" type="text")
+          .col-xs-10
+            label.col-md-3
+            span(ng-show="createMd5Flag" style="color:red") 文件信息不能为空
           .col-xs-10
             label.col-md-3
             button.btn.btn-default(ng-click="createMd5Info()")

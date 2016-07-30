@@ -40,6 +40,8 @@ md5Module.controller 'mainCtl',['$http','$scope','md5','httpService','NgTablePar
   
   $scope.loginErr = false
   
+  $scope.createMd5Flag = false
+  
   httpService.getFileInfo()
   .then (res) ->
     $scope.filesInfoTable = new NgTableParams({
@@ -78,20 +80,25 @@ md5Module.controller 'mainCtl',['$http','$scope','md5','httpService','NgTablePar
     
 
   $scope.createMd5Info = () ->
-    data = 
-      name : $scope.createName
-      md5 : $scope.createMd5Value
-      type : $scope.createType
-    $http.post('/createMd5.json',data)
-    .then () ->
-      $scope.createName = ""
-      $scope.createMd5Value = ""
-      $scope.createType = ""
-      httpService.getFileInfo()
-      .then (data) ->
-        $scope.filesInfoTable.settings().data = data
-        $scope.filesInfoTable.count(data.length)
-        $scope.filesInfoTable.reload()
+    if !$scope.createName or !$scope.createMd5Value or !createType
+      $scope.createMd5Flag = true
+      return
+    else
+      $scope.createMd5Flag = false 
+      data = 
+        name : $scope.createName
+        md5 : $scope.createMd5Value
+        type : $scope.createType
+      $http.post('/createMd5.json',data)
+      .then () ->
+        $scope.createName = ""
+        $scope.createMd5Value = ""
+        $scope.createType = ""
+        httpService.getFileInfo()
+        .then (data) ->
+          $scope.filesInfoTable.settings().data = data
+          $scope.filesInfoTable.count(data.length)
+          $scope.filesInfoTable.reload()
   
   $scope.deleteMd5 = (_id) ->
     data = 
@@ -189,4 +196,6 @@ md5Module.controller 'mainCtl',['$http','$scope','md5','httpService','NgTablePar
       id:$scope.recommendArr[num].id
       hot:$scope.recommendArr[num].hot+1
     $http.post('/updateHot.json',data)
+    .catch(err) ->
+      console.log err
 ]
