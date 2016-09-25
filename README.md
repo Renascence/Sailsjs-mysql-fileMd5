@@ -7,9 +7,15 @@ git clone git@github.com:Renascence/Sailsjs-mysql-fileMd5.git
 
 2.
 ```
+cd project
+```
+
+3.
+```
 npm install
 ```
-3.
+
+4.
 ```
 sails lift
 ```
