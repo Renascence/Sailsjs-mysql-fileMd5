@@ -9,22 +9,6 @@ html(ng-app="md5")
     
     
   body(ng-controller="mainCtl")
-    div#header
-      .navbar-right          
-        li.is-align-right
-          a(href="/" ng-click="logout()") 注销
-        li.is-align-right
-          a(href="/") 
-            span#dropdownCtl 登陆
-            div#dropdownTarget.login-dropdown
-              p
-                label 用户名：  
-                input(type="text" ng-model="username")
-              p
-                label 密  码：
-                input(type="password" ng-model="password")
-              p(ng-show="loginErr" style="color:red;") 账号或者密码错误
-              button.btn.btn-default(ng-click="login()") 登陆
     div.banner
       ul
         li 
@@ -64,7 +48,7 @@ html(ng-app="md5")
           table.table(ng-table="filesInfoTable" show-filter="true")
             col(width="35%")
             col(width="65%")
-            col(width="10%" ng-show="cookieUsername")
+            col(width="10%")
             tr(ng-repeat="d in $data" )
               td(title="'名称'"  filter="{ name: 'text'}")
                 span {{d.name}}
@@ -72,7 +56,7 @@ html(ng-app="md5")
                 span {{d.md5}}
               td
                 button.btn.btn-default.btn-sm(ng-click="deleteMd5(d.id)") 删除
-        div.createMd5Info(ng-show="cookieUsername")
+        div.createMd5Info
           .col-xs-10
             label.col-md-3 文件名：
             input(ng-model="createName" type="text")
